@@ -1993,3 +1993,7 @@ This generated password is for development use only. Your security configuration
 2026-05-10 23:18:22.320 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.bmb.bank_project.exception.BankException: Account not found or does not belong to this CIF.]
 2026-05-10 23:22:12.686 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection ConnectionID:62 ClientConnectionId: 605e24df-5b9d-4040-999b-d9b3071befd4 (The connection is closed.). Possibly consider using a shorter maxLifetime value.
 2026-05-10 23:22:15.534 [mssql-timeout-task-19-605e24df-5b9d-4040-999b-d9b3071befd4] WARN  c.m.s.jdbc.internals.TDS.Command - TDSCommand@7331fe7e (SQLServerStatement:689 executeXXX): Command could not be timed out. Reason: Socket closed
+2026-05-10 23:24:07.031 [SpringApplicationShutdownHook] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-10 23:24:31.947 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-10 23:24:33.552 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-10 23:24:37.267 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
