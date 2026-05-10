@@ -1,0 +1,16 @@
+2026-05-03 18:44:32.756 INFO  - [56F28FF7] REQUEST  | GET /api/accounts | Body: <empty>
+2026-05-03 18:44:32.760 INFO  - [56F28FF7] RESPONSE | GET /api/accounts | Status: 200 | Duration: 7350ms | Body: []
+2026-05-03 18:44:42.849 INFO  - [B6A7FF36] REQUEST  | GET /api/accounts | Body: <empty>
+2026-05-03 18:44:42.850 INFO  - [B6A7FF36] RESPONSE | GET /api/accounts | Status: 200 | Duration: 431ms | Body: []
+2026-05-03 18:45:02.364 INFO  - [D72D0951] REQUEST  | GET /api/accounts | Body: <empty>
+2026-05-03 18:45:02.365 INFO  - [D72D0951] RESPONSE | GET /api/accounts | Status: 200 | Duration: 78ms | Body: []
+2026-05-03 18:45:07.013 INFO  - [9DCB0A1A] REQUEST  | GET /api/accounts | Body: <empty>
+2026-05-03 18:45:07.015 INFO  - [9DCB0A1A] RESPONSE | GET /api/accounts | Status: 200 | Duration: 894ms | Body: []
+2026-05-03 19:46:54.132 INFO  - [09B76019] REQUEST  | GET /favicon.ico | Body: <empty>
+2026-05-03 19:46:54.133 INFO  - [09B76019] RESPONSE | GET /favicon.ico | Status: 500 | Duration: 78ms | Body: {"message":"An unexpected error occurred: No static resource favicon.ico for request '/favicon.ico'.","success":false}
+2026-05-03 23:30:36.712 INFO  - [7D585702] REQUEST  | POST /api/cif/register | Body: { "fullName": "John Doe", "email": "seeifeldina@example.com", "phoneNumber": "+9665XXXXXXXX" }
+2026-05-03 23:30:36.712 INFO  - [7D585702] RESPONSE | POST /api/cif/register | Status: 400 | Duration: 2207ms | Body: {"message":"Phone number must be 7–15 digits, optionally starting with +","success":false}
+2026-05-03 23:31:09.940 INFO  - [091B6887] REQUEST  | POST /api/cif/register | Body: { "fullName": "Seif Ashraf", "email": "seeifeldina@example.com", "phoneNumber": "+201100339940" }
+2026-05-03 23:31:09.940 INFO  - [091B6887] RESPONSE | POST /api/cif/register | Status: 201 | Duration: 13564ms | Body: {"data":{"cifNumber":"CIF-6977D9FC","fullName":"Seif Ashraf","nextStep":"Use the Set TPIN API with your CIF number to activate your account."},"message":"CIF registered successfully.","success":true}
+2026-05-03 23:31:26.480 INFO  - [74FF522A] REQUEST  | POST /api/cif/register | Body: { "fullName": "Seif Ashraf", "email": "seeifeldina@example.com", "phoneNumber": "+201100339940" }
+2026-05-03 23:31:26.481 INFO  - [74FF522A] RESPONSE | POST /api/cif/register | Status: 409 | Duration: 319ms | Body: {"message":"A CIF with this email already exists.","success":false}

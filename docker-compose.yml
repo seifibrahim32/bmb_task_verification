@@ -1,0 +1,61 @@
+services:
+
+  # ── 1. SQL Server ────────────────────────────────────────────────────────────
+  mssql:
+    build:
+      context: ./docker/mssql
+    container_name: bank_mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "YourPassword123"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd",
+             "-S", "localhost", "-U", "sa", "-P", "YourPassword123",
+             "-d", "bank_db",
+             "-Q", "SELECT 1", "-C"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 60s
+
+  # ── 2. Flyway Migrations (Redgate) ───────────────────────────────────────────
+  # Runs all pending V*.sql migrations then exits (one-shot container).
+  # The app service waits for this to complete successfully before starting.
+  flyway:
+    image: redgate/flyway:latest
+    container_name: bank_flyway
+    command: migrate
+    volumes:
+      # Mount migration SQL scripts into the Flyway container
+      - ./src/main/resources/db/migration:/flyway/sql
+      # Mount Docker-specific Flyway config (uses 'mssql' hostname)
+      - ./docker/flyway/flyway.conf:/flyway/conf/flyway.conf
+    depends_on:
+      mssql:
+        condition: service_healthy
+    restart: on-failure
+
+  # ── 3. Spring Boot Application ───────────────────────────────────────────────
+  # Starts only after Flyway has applied all migrations successfully.
+  app:
+    build:
+      context: .
+    container_name: bank_app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mssql:
+        condition: service_healthy
+      flyway:
+        condition: service_completed_successfully
+    restart: on-failure
+
+volumes:
+  mssql_data:
