@@ -635,4 +635,5 @@ Make sure to try the ```docker compose up``` multiple times in root project loca
 
 Here is a Postman collection to try API endpoints.
 
-https://ediphoria.postman.co/workspace/My-Workspace~96dc42c6-0062-4ad8-8d7e-22a05cca9daa/collection/43888644-19933e0c-8d34-4b78-98a4-a9dd331b74d4?action=share&creator=43888644
+https://documenter.getpostman.com/view/43888644/2sBXqNmdwv
+

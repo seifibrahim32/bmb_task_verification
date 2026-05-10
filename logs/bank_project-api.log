@@ -14,3 +14,51 @@
 2026-05-03 23:31:09.940 INFO  - [091B6887] RESPONSE | POST /api/cif/register | Status: 201 | Duration: 13564ms | Body: {"data":{"cifNumber":"CIF-6977D9FC","fullName":"Seif Ashraf","nextStep":"Use the Set TPIN API with your CIF number to activate your account."},"message":"CIF registered successfully.","success":true}
 2026-05-03 23:31:26.480 INFO  - [74FF522A] REQUEST  | POST /api/cif/register | Body: { "fullName": "Seif Ashraf", "email": "seeifeldina@example.com", "phoneNumber": "+201100339940" }
 2026-05-03 23:31:26.481 INFO  - [74FF522A] RESPONSE | POST /api/cif/register | Status: 409 | Duration: 319ms | Body: {"message":"A CIF with this email already exists.","success":false}
+2026-05-10 21:29:24.983 INFO  - [E51DDD4B] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:29:25.023 INFO  - [E51DDD4B] RESPONSE | POST /api/cif/authenticate | Status: 401 | Duration: 66859ms | Body: {"data":{"authenticated":false,"cifNumber":"CIF-225EA53C","remainingAttempts":2,"token":null},"message":"Incorrect TPIN. 2 attempt(s) remaining before account is blocked.","success":false}
+2026-05-10 21:31:29.318 INFO  - [55E6DEEC] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:31:29.319 INFO  - [55E6DEEC] RESPONSE | POST /api/cif/authenticate | Status: 401 | Duration: 117893ms | Body: {"data":{"authenticated":false,"cifNumber":"CIF-225EA53C","remainingAttempts":1,"token":null},"message":"Incorrect TPIN. 1 attempt(s) remaining before account is blocked.","success":false}
+2026-05-10 21:32:04.429 INFO  - [FE1BDCB9] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:32:04.429 INFO  - [FE1BDCB9] RESPONSE | POST /api/cif/authenticate | Status: 500 | Duration: 30110ms | Body: {"message":"An unexpected error occurred: Could not open JPA EntityManager for transaction","success":false}
+2026-05-10 21:32:25.750 INFO  - [2AC5D845] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:32:25.753 INFO  - [2AC5D845] RESPONSE | POST /api/cif/authenticate | Status: 403 | Duration: 12181ms | Body: {"message":"Incorrect TPIN. CIF has been blocked after 3 failed attempts.","success":false}
+2026-05-10 21:32:44.782 INFO  - [09697ACB] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:32:44.782 INFO  - [09697ACB] RESPONSE | POST /api/cif/authenticate | Status: 403 | Duration: 1216ms | Body: {"message":"This CIF is blocked due to too many failed attempts. Please use Reset TPIN.","success":false}
+2026-05-10 21:33:48.984 INFO  - [C3991585] REQUEST  | POST /api/cif/reset-tpin | Body: { "cifNumber": "CIF-225EA53C", "newTpin": "****", "confirmTpin": "****" }
+2026-05-10 21:33:48.985 INFO  - [C3991585] RESPONSE | POST /api/cif/reset-tpin | Status: 200 | Duration: 3155ms | Body: {"message":"TPIN reset successfully. CIF is now active.","success":true}
+2026-05-10 21:34:07.245 INFO  - [97331B98] REQUEST  | POST /api/cif/reset-tpin | Body: { "cifNumber": "CIF-225EA53C", "newTpin": "****", "confirmTpin": "****" }
+2026-05-10 21:34:07.246 INFO  - [97331B98] RESPONSE | POST /api/cif/reset-tpin | Status: 400 | Duration: 1290ms | Body: {"message":"CIF is not blocked. Reset TPIN is only for blocked CIFs.","success":false}
+2026-05-10 21:34:16.364 INFO  - [CA2E5B74] REQUEST  | POST /api/cif/reset-tpin | Body: { "cifNumber": "CIF-225EA53C", "newTpin": "****", "confirmTpin": "****" }
+2026-05-10 21:34:16.365 INFO  - [CA2E5B74] RESPONSE | POST /api/cif/reset-tpin | Status: 400 | Duration: 1678ms | Body: {"message":"CIF is not blocked. Reset TPIN is only for blocked CIFs.","success":false}
+2026-05-10 21:35:28.678 INFO  - [491B1539] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:35:28.678 INFO  - [491B1539] RESPONSE | POST /api/cif/authenticate | Status: 401 | Duration: 12262ms | Body: {"data":{"authenticated":false,"cifNumber":"CIF-225EA53C","remainingAttempts":2,"token":null},"message":"Incorrect TPIN. 2 attempt(s) remaining before account is blocked.","success":false}
+2026-05-10 21:35:49.395 INFO  - [63508A1C] REQUEST  | POST /api/cif/reset-tpin | Body: { "cifNumber": "CIF-225EA53C", "newTpin": "****", "confirmTpin": "****" }
+2026-05-10 21:35:49.396 INFO  - [63508A1C] RESPONSE | POST /api/cif/reset-tpin | Status: 400 | Duration: 3802ms | Body: {"message":"CIF is not blocked. Reset TPIN is only for blocked CIFs.","success":false}
+2026-05-10 21:36:05.115 INFO  - [D7D0D913] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:36:05.116 INFO  - [D7D0D913] RESPONSE | POST /api/cif/authenticate | Status: 401 | Duration: 3012ms | Body: {"data":{"authenticated":false,"cifNumber":"CIF-225EA53C","remainingAttempts":1,"token":null},"message":"Incorrect TPIN. 1 attempt(s) remaining before account is blocked.","success":false}
+2026-05-10 21:36:14.374 INFO  - [DDCC0E3D] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:36:14.375 INFO  - [DDCC0E3D] RESPONSE | POST /api/cif/authenticate | Status: 403 | Duration: 6034ms | Body: {"message":"Incorrect TPIN. CIF has been blocked after 3 failed attempts.","success":false}
+2026-05-10 21:36:17.951 INFO  - [C1ACD540] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:36:17.955 INFO  - [C1ACD540] RESPONSE | POST /api/cif/authenticate | Status: 403 | Duration: 141ms | Body: {"message":"This CIF is blocked due to too many failed attempts. Please use Reset TPIN.","success":false}
+2026-05-10 21:36:22.096 INFO  - [45E9A64B] REQUEST  | POST /api/cif/authenticate | Body: { "cifNumber": "CIF-225EA53C", "tpin": "****" }
+2026-05-10 21:36:22.097 INFO  - [45E9A64B] RESPONSE | POST /api/cif/authenticate | Status: 403 | Duration: 864ms | Body: {"message":"This CIF is blocked due to too many failed attempts. Please use Reset TPIN.","success":false}
+2026-05-10 21:36:59.096 INFO  - [2303950F] REQUEST  | POST /api/cif/reset-tpin | Body: { "cifNumber": "CIF-225EA53C", "newTpin": "****", "confirmTpin": "****" }
+2026-05-10 21:36:59.097 INFO  - [2303950F] RESPONSE | POST /api/cif/reset-tpin | Status: 200 | Duration: 11585ms | Body: {"message":"TPIN reset successfully. CIF is now active.","success":true}
+2026-05-10 22:55:28.917 INFO  - [A69D7864] REQUEST  | GET /api/accounts | Body: <empty>
+2026-05-10 22:55:28.938 INFO  - [A69D7864] RESPONSE | GET /api/accounts | Status: 200 | Duration: 152029ms | Body: {"data":[],"message":"Accounts retrieved.","success":true}
+2026-05-10 23:03:04.462 INFO  - [60869B0D] REQUEST  | POST /api/accounts | Body: { "accountNumber": "ACC-001234", "holderName": "John Doe", "balance": 1500.00, "accountType": "SAVINGS" }
+2026-05-10 23:03:04.463 INFO  - [60869B0D] RESPONSE | POST /api/accounts | Status: 201 | Duration: 64231ms | Body: {"data":{"accountNumber":"ACC-001234","accountType":"SAVINGS","balance":1500.00,"cifNumber":"CIF-225EA53C","holderName":"John Doe","id":1},"message":"Account created successfully.","success":true}
+2026-05-10 23:10:02.394 INFO  - [084A9F61] REQUEST  | POST /api/accounts | Body: { "accountNumber": "ACC-001234", "holderName": "John Doe", "balance": 1500.00, "accountType": "SAVINGS" }
+2026-05-10 23:10:02.394 INFO  - [084A9F61] RESPONSE | POST /api/accounts | Status: 409 | Duration: 5074ms | Body: {"message":"Account number 'ACC-001234' is already in use.","success":false}
+2026-05-10 23:11:08.994 INFO  - [29FC6360] REQUEST  | POST /api/accounts | Body: { "accountNumber": "ACC-R01234", "holderName": "John Doe", "balance": 1500.00, "accountType": "SAVINGS" }
+2026-05-10 23:11:08.995 INFO  - [29FC6360] RESPONSE | POST /api/accounts | Status: 201 | Duration: 10036ms | Body: {"data":{"accountNumber":"ACC-R01234","accountType":"SAVINGS","balance":1500.00,"cifNumber":"CIF-225EA53C","holderName":"John Doe","id":2},"message":"Account created successfully.","success":true}
+2026-05-10 23:12:01.420 INFO  - [AD48A21E] REQUEST  | POST /api/accounts | Body: { "accountNumber": "ACC-R01234", "holderName": "John Doe", "balance": 1500.00, "accountType": "SAVINGS" }
+2026-05-10 23:12:01.421 INFO  - [AD48A21E] RESPONSE | POST /api/accounts | Status: 409 | Duration: 1137ms | Body: {"message":"Account number 'ACC-R01234' is already in use.","success":false}
+2026-05-10 23:12:26.084 INFO  - [67A7BEA7] REQUEST  | POST /api/accounts | Body: { "accountNumber": "ACC-l01234", "holderName": "John Doe", "balance": 1500.00, "accountType": "SAVINGS" }
+2026-05-10 23:12:26.084 INFO  - [67A7BEA7] RESPONSE | POST /api/accounts | Status: 201 | Duration: 5439ms | Body: {"data":{"accountNumber":"ACC-l01234","accountType":"SAVINGS","balance":1500.00,"cifNumber":"CIF-225EA53C","holderName":"John Doe","id":3},"message":"Account created successfully.","success":true}
+2026-05-10 23:14:48.878 INFO  - [66ECCC6D] REQUEST  | GET /api/accounts | Body: <empty>
+2026-05-10 23:14:48.878 INFO  - [66ECCC6D] RESPONSE | GET /api/accounts | Status: 200 | Duration: 32779ms | Body: {"data":[{"accountNumber":"ACC-001234","accountType":"SAVINGS","balance":1500.00,"cifNumber":"CIF-225EA53C","holderName":"John Doe","id":1},{"accountNumber":"ACC-R01234","accountType":"SAVINGS","balance":1500.00,"cifNumber":"CIF-225EA53C","holderName":"John Doe","id":2},{"accountNumber":"ACC-l01234","accountType":"SAVINGS","balance":1500.00,"cifNumber":"CIF-225EA53C","holderName":"John Doe","id":3}],"message":"Accounts retrieved.","success":true}
+2026-05-10 23:17:26.791 INFO  - [7F779F6C] REQUEST  | GET /api/accounts/3 | Body: <empty>
+2026-05-10 23:17:26.796 INFO  - [7F779F6C] RESPONSE | GET /api/accounts/3 | Status: 200 | Duration: 48570ms | Body: {"data":{"accountNumber":"ACC-l01234","accountType":"SAVINGS","balance":1500.00,"cifNumber":"CIF-225EA53C","holderName":"John Doe","id":3},"message":"Account retrieved.","success":true}
+2026-05-10 23:18:22.321 INFO  - [5BBF4FA3] REQUEST  | GET /api/accounts/300 | Body: <empty>
+2026-05-10 23:18:22.322 INFO  - [5BBF4FA3] RESPONSE | GET /api/accounts/300 | Status: 404 | Duration: 1727ms | Body: {"message":"Account not found or does not belong to this CIF.","success":false}
